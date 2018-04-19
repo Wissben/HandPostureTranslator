@@ -1,9 +1,8 @@
-import re,os,sys
-
 reader = open("dataSetHandPosture.csv",'r')
 writer = open("dataOneOf5.csv",'w')
 
 lines = reader.readlines()
+writer.writelines(lines[0][0:len(lines[0]) - 2] + ",a,w,i,s,\n")
 lines =lines[1:len(lines)]
 for line in lines :
     code =[]

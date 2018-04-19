@@ -3,6 +3,7 @@ import time
 import numpy as np
 from pandas import read_csv
 from sklearn.preprocessing import Imputer
+from tensorflow.python.keras._impl.keras.callbacks import CSVLogger
 from tensorflow.python.keras.callbacks import TensorBoard
 from tensorflow.python.keras.layers import Dense
 from tensorflow.python.keras.models import Sequential
@@ -13,23 +14,22 @@ stats.write("layers,tranFnc,opt,epochs,batch,accuracy,mse,trainingTime\n")
 stats.close()
 file = "/home/wiss/CODES/TP-AARN/Mini-Project/DataSets/dataOneOf5.csv"
 # SIZE OF INPUT DATASET TO TRAIN ON (MAX IS 78071)
-MAX = 78071
+MAX = int(78071)
 trainingRows = int(MAX * 75 / 100)
 testingRows = MAX - trainingRows
 
 
-def replaceMissingData(X):
-    # fill missing values with mean column values
-    imputer = Imputer()
-    transformed_X = imputer.fit_transform(X)
-    # count the number of NaN values in each column
-    return transformed_X
+def replaceMissingData(X, strategy):
+    mean_imputer = Imputer(missing_values='NaN', strategy=strategy, axis=0)
+    mean_imputer = mean_imputer.fit(X)
+    imputed_df = mean_imputer.transform(X.values)
+    return imputed_df
 
 
 def evaluateModel(model, X, Y, batch):
     score = model.evaluate(X, Y, batch_size=batch, verbose=1)
-    print('Test loss:', score[0])
-    print('Test accuracy:', score[1])
+    print('Test LOSS:', score[0])
+    print('Test ACCURACY:', score[1])
     print('Test MSE :', score[2])
     # sleep(25)
     return score
@@ -39,6 +39,9 @@ def trainModel(modelName, train_X, train_Y, test_X, test_Y, layers, inputDime, o
                batch):
     # create tesnsorboard callback
     tb = TensorBoard(log_dir='./logs', histogram_freq=0, write_graph=True, write_images=True)
+    # create a csv logger callback
+    csv_logger = CSVLogger("Models/Logs/" + modelName + 'training.log')
+
     ## create model
     model = Sequential()
     model.add(Dense(layers[0], input_dim=inputDime, activation=transfnc))
@@ -52,8 +55,9 @@ def trainModel(modelName, train_X, train_Y, test_X, test_Y, layers, inputDime, o
     model.compile(loss='categorical_crossentropy', optimizer=optimizer, metrics=['accuracy', 'mse'])
     start_time = time.time()
     # Fit the model
-    model.fit(train_X, train_Y, epochs=epochs, batch_size=batch, callbacks=[tb], verbose=1, validation_split=0.10,
-              shuffle=True)
+    model.fit(train_X, train_Y, epochs=epochs, shuffle=True, batch_size=batch, callbacks=[tb, csv_logger], verbose=1,
+              validation_split=0.15,
+              )
 
     # evaluate the model
     scores = evaluateModel(model, test_X, test_Y, batch)
@@ -91,25 +95,25 @@ def trainModel(modelName, train_X, train_Y, test_X, test_Y, layers, inputDime, o
 
 
 ##Biggest bullshit ever made :
-# data = read_csv(file,header=None).replace('?',np.NaN)
+# data = read_csv(file,header=0).replace('?',np.NaN)
 ##
 data = read_csv(file, header=None).replace('?', 0)
 values = data.values
 np.random.seed(7)
 np.random.shuffle(values)
-# values=replaceMissingData(values)
-
+# values=replaceMissingData(data,'mean')
+# print(values)
 
 training_X = values[0:trainingRows, 2:38]
-training_Y = values[0:trainingRows, 37:42]
+training_Y = values[0:trainingRows, 38:43]
 
-# print(values[trainingRows+1])
 testing_X = values[trainingRows + 1:MAX, 2:38]
-testing_Y = values[trainingRows + 1:MAX, 37:42]
+testing_Y = values[trainingRows + 1:MAX, 38:43]
 
 # training the model
-model = trainModel("modelTest", training_X, training_Y, testing_X, testing_Y, [120, 120, 120], 36, 5,
+model = trainModel("modelTest", training_X, training_Y, testing_X, testing_Y, [50, 25, 60], 36, 5,
                    'relu', 'Adadelta', 150, 100)
+
 #
 # del model
 # model = load_model(
@@ -117,8 +121,8 @@ model = trainModel("modelTest", training_X, training_Y, testing_X, testing_Y, [1
 # print(model.predict(testing_X, batch_size=128))
 # #
 # Uncomment to launch multiple models training
-# transFncs = ['sigmoid','relu', 'tanh']
-# optimizers = ['sgd', 'adagrad', 'adam']
+# transFncs = ['tanh','relu', 'sigmoid']
+# optimizers = ['Adadelta', 'adagrad', 'adam','sgd']
 # inDim = 36
 # outDim = 5
 # batch = 125
@@ -140,4 +144,3 @@ model = trainModel("modelTest", training_X, training_Y, testing_X, testing_Y, [1
 #                     print("TRAINING MODEL  :" + modeName)
 #                     trainModel(modeName, training_X, training_Y, testing_X, testing_Y, layers,
 #                                inDim, outDim, tranFnc, opt, epochs, batch)
-#
