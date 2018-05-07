@@ -1,0 +1,2 @@
+layers,tranFnc,opt,epochs,batch,score
+50-25-15-10-5,relu,sgd,150,15,100.0

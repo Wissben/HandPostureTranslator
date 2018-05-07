@@ -1,12 +1,20 @@
 import numpy as np
 from pandas import read_csv
 from tensorflow.python.keras.models import load_model
+# from ..training.kerasModelTrainer import evaluateModel
 
 MAX = 78071
 
+def evaluateModel(model, X, Y, batch):
+    score = model.evaluate(X, Y, batch_size=batch, verbose=1)
+    print('Test LOSS:', score[0])
+    print('Test ACCURACY:', score[1])
+    print('Test MSE :', score[2])
+    # sleep(25)
+    return score
 
 def fileToArray(path, replaceMissing):  # Here you may redifine how u read from your file
-    fileReader = open(path, 'r')
+    # fileReader = open(path, 'r')
     data = read_csv(path, header=0).replace('?', replaceMissing).astype('float')
 
     values = data.values
@@ -14,7 +22,7 @@ def fileToArray(path, replaceMissing):  # Here you may redifine how u read from 
 
     dataTestSize = int(MAX)
     # return data.values[1500:1501,2:38]
-    return values[0:dataTestSize, 2:38], values[0:dataTestSize, 38:42]
+    return values[0:dataTestSize, 2:38], values[0:dataTestSize, 38:43]
 
 
 def loadModel(pathToModel):
@@ -23,15 +31,17 @@ def loadModel(pathToModel):
     return model
 
 
-pathToTestinFile = "/home/wiss/CODES/TP-AARN/Mini-Project/DataSets/dataOneOf5.csv"
-pathToModel = "/home/wiss/CODES/TP-AARN/Mini-Project/backend/training/Models/Weigths/modelTest.hd5"
+pathToTestinFile = "../../DataSets/dataOneOf5.csv"
+pathToModel = "../training/Models/Weights/modelTest.hd5"
 batchSize = 100
 resultPath = "./results.csv"
 
 testingSet, targetSet = fileToArray(pathToTestinFile, 0)
 model = load_model(pathToModel)
-Y = model.predict_proba(testingSet)
+Y = model.predict(testingSet)
+evaluateModel(model,testingSet,targetSet,100)
 matching = []
+print(Y)
 for i, j in zip(Y, targetSet):
     matching.append([np.unravel_index(i.argmax(), i.shape) == np.unravel_index(j.argmax(), j.shape)])
 unique_elements, counts_elements = np.unique(matching, return_counts=True)
