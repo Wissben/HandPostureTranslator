@@ -4,10 +4,18 @@ Le problème ne pouvant être résolu à l'aide de techniques d'algorithmique cl
 \subsection{Apprentissage sur les données}
 \paragraph{}
 Après avoir analysée et traité les données, nous avons ensuite entamer la conception de notre modèle, étant donnée que nous avons utilisé deux approches pour le pré-traitement des donnés, la façon dont notre modèle va apprendre ces données pourrait différer, c'est pourquoi cette section sera diviser en deux sous-sections : \\
-\tikzstyle{arrow} = [thick,->,>=stealth]
-\begin{tikzpicture}[node distance=2cm]
 
-\node (start) [startstop] {Start};
-
-
-\end{tikzpicture}
+	\begin{tikzpicture}[node distance=2cm]
+	\node (pro2a) [process, yshift=-0.5cm] {Pré-traitement des données};
+	\node (pro2b) [process, below of=pro2a, xshift=-4cm] {Approche naïve};
+	\node (pro2c) [process, below of=pro2a, xshift=4cm] {Approche par clustering};
+	\node (pro2ca) [process, below of=pro2c,text centered, text width=3cm,minimum height=2cm] {Apprentissage \textbf{one-user-left}};
+	\node (pro2ba) [process, below of=pro2b, xshift=-2cm,text centered, text width=3cm,minimum height=2cm] {Apprentissage partitionnement aléatoire};
+	\node (pro2bb) [process, below of=pro2b, xshift=2cm,text centered, text width=3cm,minimum height=2cm] {Apprentissage \textbf{one-user-left}};
+	\draw [arrow] (pro2a) -- (pro2b);
+	\draw [arrow] (pro2a) -- (pro2c);
+	\draw [arrow] (pro2b) -- (pro2ba);
+	\draw [arrow] (pro2b) -- (pro2bb);
+	\draw [arrow] (pro2c) -- (pro2ca);
+	\end{tikzpicture}
+\par 
