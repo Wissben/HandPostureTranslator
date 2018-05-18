@@ -8,9 +8,9 @@ Après avoir analysée et traité les données, nous avons ensuite entamer la co
 	\begin{tikzpicture}[node distance=2cm]
 	\node (pro2a) [process, yshift=-0.5cm] {Pré-traitement des données};
 	\node (pro2b) [process, below of=pro2a, xshift=-4cm] {Approche naïve};
-	\node (pro2c) [process, below of=pro2a, xshift=4cm] {Approche par clustering};
+	\node (pro2c) [process, below of=pro2a, xshift=5cm] {Approche par clustering};
 	\node (pro2ca) [process, below of=pro2c,text centered, text width=3cm,minimum height=2cm] {Apprentissage \textbf{one-user-left}};
-	\node (pro2ba) [process, below of=pro2b, xshift=-2cm,text centered, text width=3cm,minimum height=2cm] {Apprentissage partitionnement aléatoire};
+	\node (pro2ba) [process, below of=pro2b, xshift=-2cm,text centered, text width=3cm,minimum height=2cm] {Apprentissage par partitionnement aléatoire};
 	\node (pro2bb) [process, below of=pro2b, xshift=2cm,text centered, text width=3cm,minimum height=2cm] {Apprentissage \textbf{one-user-left}};
 	\draw [arrow] (pro2a) -- (pro2b);
 	\draw [arrow] (pro2a) -- (pro2c);
@@ -18,4 +18,10 @@ Après avoir analysée et traité les données, nous avons ensuite entamer la co
 	\draw [arrow] (pro2b) -- (pro2bb);
 	\draw [arrow] (pro2c) -- (pro2ca);
 	\end{tikzpicture}
-\par 
+\paragraph{Apprentissage par partitionnement aléatoire}
+Danse cette approche, nous avons décidé de partitionné les donnés dans leur intégralité en 3 sous ensembles : 
+\begin{itemize}
+	\item $A$ Ensemble des instances sur les quelles sera lancé l'apprentissage.
+	\item $V$ Ensemble des instances pour contrôler l'avancement de l'apprentissage.
+	\item $T$ Ensemble des instances qui servirons à l'évaluation de l'approximation fournie par le modèle après sont apprentissage 
+\end{itemize}

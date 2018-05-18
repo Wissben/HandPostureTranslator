@@ -1,6 +1,6 @@
 import time
 import numpy as np
-from neuralNetworkModel.treat import Selector
+from backend.training.neuralNetworkModel.treat import Selector
 from pandas import read_csv
 from sklearn.preprocessing import Imputer
 from tensorflow.python.keras._impl.keras.callbacks import CSVLogger
