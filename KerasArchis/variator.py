@@ -1,10 +1,10 @@
-from collections import Iterator
+from collections import Iterator, Iterable
 from tensorflow.python.keras.models import Model
 from tensorflow.python.keras.layers import Dense
 from tensorflow.python.keras.models import Sequential
 from tensorflow.python.keras import backend as K
 
-# from backend.training.neuralNetworkModel.treat import Selector
+from backend.training.neuralNetworkModel.treat import Selector
 import numpy as np
 
 
@@ -24,14 +24,14 @@ class Variator(object):
                  evaluateScoreFunction=None) -> None:
         super().__init__()
         if evaluationCallbacks:
-            if isinstance(evaluationCallbacks, Iterator):
+            if isinstance(evaluationCallbacks, Iterable):
                 self.evaluationCallbacks = evaluationCallbacks
             else:
                 self.evaluationCallbacks = [evaluationCallbacks]
 
         if not updateBestCallbacks:
             updateBestCallbacks = defaultUpdateBestCallback
-        if isinstance(updateBestCallbacks, Iterator):
+        if isinstance(updateBestCallbacks, Iterable):
             self.updateBestCallbacks = updateBestCallbacks
         else:
             self.updateBestCallbacks = [updateBestCallbacks]
@@ -42,8 +42,11 @@ class Variator(object):
 
     def train(self,inputs,targets,splitRatio,trainParamsGenerator=None):
         train_X, train_Y, test_X, test_Y = splitData(inputs,targets,splitRatio)
+        return self.trainB(train_X, train_Y, test_X, test_Y,trainParamsGenerator)
+
+    def trainB(self,train_X, train_Y, test_X, test_Y,trainParamsGenerator=None):
         if not trainParamsGenerator:
-            trainParamsGenerator = self.createTrainParamsGenerator(inputs,targets,
+            trainParamsGenerator = self.createTrainParamsGenerator(train_X,train_Y,
                                                                    defaultTrainGenerators())
         return self._trainModel(trainParamsGenerator,train_X, train_Y, test_X, test_Y)
 

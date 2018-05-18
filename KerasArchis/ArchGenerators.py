@@ -9,7 +9,7 @@ from pandas import read_csv
 from KerasArchis.variator import Variator
 
 
-def layerGenerator(numberOfLayers=3,step=10,maxPerLayer=40):
+def layerGenerator(numberOfLayers=1,step=20,maxPerLayer=40):
     layers = [40,]
     activations = ['relu']
     for num in range(numberOfLayers):
@@ -40,6 +40,8 @@ def plotCallback(variator:Variator,model:Model):
     # Image.open(variator.currentParameters['modelName']+'.png').show()
     # plt.show()
     # plot(plt)
+
+
 
 def updateBestCallback(variator:Variator,bestModel:Model,bestScore):
     # get last history
@@ -79,8 +81,29 @@ np.random.shuffle(values)
 
 tX = values[:, 2:-5]
 tY = values[:, -5:]
-print(X)
-print(Y)
+
+def writeCSV(variator:Variator,model:Model,counter = [0]):
+    history = variator.histories[-1]
+    score = model.evaluate(tX,tY,verbose=0)
+
+
+    with open("logs/modelStats.csv","a") as f:
+        if counter[0] == 0:
+            counter[0] += 1
+            f.write("Model,"+str(model.loss))
+            for metric in model.metrics:
+                f.write(',' + str(metric))
+            f.write("\n")
+
+        f.write(variator.currentParameters['modelName']+","+str(score[0]))
+        index = 1
+        for metric in model.metrics:
+            f.write(','+str(score[index]))
+            index += 1
+        f.write("\n")
+
+
+
 monitor = EarlyStopping(monitor='val_loss', min_delta=1e-3, patience=5, verbose=0, mode='auto')
 # create tesnsorboard callback
 tb = TensorBoard(log_dir='./logs', histogram_freq=0, write_graph=True, write_images=True)
@@ -94,7 +117,7 @@ paramGenerator = Variator.createTrainParamsGenerator(X,Y,trainGenerator,retrains
 
 
 # training the model
-variator = Variator(evaluationCallbacks=plotCallback,updateBestCallbacks=updateBestCallback)
+variator = Variator(evaluationCallbacks=[plotCallback,writeCSV],updateBestCallbacks=updateBestCallback)
 model,score = variator.trainB(X,Y,tX,tY,paramGenerator)
 
 model_json = model.to_json()
