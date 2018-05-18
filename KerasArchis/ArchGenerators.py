@@ -1,6 +1,6 @@
 from threading import Thread
 
-from tensorflow.python.keras._impl.keras.callbacks import CSVLogger
+from tensorflow.python.keras._impl.keras.callbacks import CSVLogger, EarlyStopping
 from tensorflow.python.keras.callbacks import TensorBoard
 from tensorflow.python.keras import Model
 import numpy as np
@@ -54,13 +54,13 @@ def updateBestCallback(variator:Variator,bestModel:Model,bestScore):
     plt.legend(['train', 'test'], loc='upper left')
     fig.savefig('bestModel.png', dpi=fig.dpi)
     from PIL import Image
-    Image.open('bestModel.png').show()
+    # Image.open('bestModel.png').show()
 
 
 # selector = Selector("allUsers.lcl.csv",6,2500)
 # values = selector.getData()
 
-data = read_csv("../DataSets/dataOneOf5.csv").replace('?', 0)
+data = read_csv("../DataSets/newFileTrain.csv").replace('?', 0)
 values = data.astype('float64').values
 values = values[1:,:]
 print(values.shape)
@@ -69,19 +69,36 @@ np.random.shuffle(values)
 
 X = values[:, 2:-5]
 Y = values[:, -5:]
+
+data = read_csv("../DataSets/newFileTest.csv").replace('?', 0)
+values = data.astype('float64').values
+values = values[1:,:]
+print(values.shape)
+np.random.seed(7)
+np.random.shuffle(values)
+
+tX = values[:, 2:-5]
+tY = values[:, -5:]
 print(X)
 print(Y)
+monitor = EarlyStopping(monitor='val_loss', min_delta=1e-3, patience=5, verbose=0, mode='auto')
 # create tesnsorboard callback
 tb = TensorBoard(log_dir='./logs', histogram_freq=0, write_graph=True, write_images=True)
 # create a csv logger callback
 csv_logger = CSVLogger("logs/modeltraining.log")
 trainGenerator = {'layer':layerGenerator(),'optimizer':optimiezersGenerator()}
 paramGenerator = Variator.createTrainParamsGenerator(X,Y,trainGenerator,retrains=2,
-                                                     epochs=20,batch=200,callbacks=[tb,csv_logger])
+                                                     epochs=20,batch=200,callbacks=[monitor,tb,csv_logger])
 
 
 
 
 # training the model
 variator = Variator(evaluationCallbacks=plotCallback,updateBestCallbacks=updateBestCallback)
-model,score = variator.train(X,Y,0.75,paramGenerator)
+model,score = variator.trainB(X,Y,tX,tY,paramGenerator)
+
+model_json = model.to_json()
+with open("Models/JSON/modelCluster_Architecure.json", "w") as json_file:
+    json_file.write(model_json)
+# serialize weights to HDF5
+model.save("Models/Weights/bestModelCluster.hd5")
