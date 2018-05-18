@@ -9,20 +9,21 @@ from pandas import read_csv
 from KerasArchis.variator import Variator
 
 
-def layerGenerator(numberOfLayers=1,step=20,maxPerLayer=40):
-    layers = [40,]
+def layerGenerator(numberOfLayers=3, step=10, maxPerLayer=40):
+    layers = [40, ]
     activations = ['relu']
     for num in range(numberOfLayers):
         layers.append(step)
-        #default is relu
+        # default is relu
         activations.append('relu')
-        numberOfSteps = int(maxPerLayer/step)
+        numberOfSteps = int(maxPerLayer / step)
         for layerSize in range(numberOfSteps):
-            yield layers,activations
+            yield layers, activations
             layers[-1] += step
 
+
 def optimiezersGenerator():
-    return ['sgd','adamax']
+    return ['Adadelta','SGD','Adam','RMSprop','Adadelta','Adagrad','Adamax','Nadam']
 
 def plotCallback(variator:Variator,model:Model):
     # get last history
@@ -102,6 +103,20 @@ def writeCSV(variator:Variator,model:Model,counter = [0]):
             index += 1
         f.write("\n")
 
+def writeCSV2(variator:Variator,model:Model,counter = [0]):
+    history = variator.histories[-1]
+    score = model.evaluate(tX,tY,verbose=0)
+
+    acc = history.history['acc'][-1]
+    val_acc = history.history['val_acc'][-1]
+
+    with open("logs/modelStats.csv","a") as f:
+        if counter[0] == 0:
+            counter[0] += 1
+            f.write("Model,acc,val_acc,test_acc\n")
+        f.write(variator.currentParameters['modelName']+","+str(acc)+","+str(val_acc)+","+str(score[1]))
+        f.write("\n")
+
 
 
 monitor = EarlyStopping(monitor='val_loss', min_delta=1e-3, patience=5, verbose=0, mode='auto')
@@ -117,7 +132,7 @@ paramGenerator = Variator.createTrainParamsGenerator(X,Y,trainGenerator,retrains
 
 
 # training the model
-variator = Variator(evaluationCallbacks=[plotCallback,writeCSV],updateBestCallbacks=updateBestCallback)
+variator = Variator(evaluationCallbacks=[plotCallback,writeCSV2],updateBestCallbacks=updateBestCallback)
 model,score = variator.trainB(X,Y,tX,tY,paramGenerator)
 
 model_json = model.to_json()
