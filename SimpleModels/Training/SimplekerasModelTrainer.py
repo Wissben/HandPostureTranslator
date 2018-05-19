@@ -101,10 +101,10 @@ def splitData(values,ratio):
     assert 1 > ratio > 0
     size = list(values.shape)[0]
     thresh = int(size*ratio)
-    training_X = values[0:thresh, 0:-5]
+    training_X = values[0:thresh, 2:-5]
     training_Y = values[0:thresh, -5:]
 
-    testing_X = values[thresh+1:, 0:-5]
+    testing_X = values[thresh+1:, 2:-5]
     testing_Y = values[thresh+1:, -5:]
     return training_X,training_Y,testing_X,testing_Y
 
@@ -119,8 +119,8 @@ print(training_X.shape)
 print(testing_X.shape)
 
 # training the model
-model = trainModel("modelTest", training_X, training_Y, testing_X, testing_Y, [40,40,20],testing_X.shape[1], testing_Y.shape[1],
-                   'relu', 'sgd', 1000, 100)
+model = trainModel("modelTest", training_X, training_Y, testing_X, testing_Y, [40,50,50,20],testing_X.shape[1], testing_Y.shape[1],
+                   'relu', 'nadam', 20, 100)
 
 y = model.predict(testing_X)
 

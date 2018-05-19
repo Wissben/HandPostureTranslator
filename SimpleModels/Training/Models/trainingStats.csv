@@ -1,1 +1,2 @@
 layers,tranFnc,opt,epochs,batch,accuracy,mse,trainingTime
+40-50-50-20,relu,nadam,20,100,96.72693829003254,0.01054997966590545,00:00:19.

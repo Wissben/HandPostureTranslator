@@ -1,7 +1,7 @@
 import numpy as np
 from pandas import read_csv
 from tensorflow.python.keras.models import load_model
-# from ..training.kerasModelTrainer import evaluateModel
+import sys
 
 MAX = 78071
 
@@ -30,9 +30,12 @@ def loadModel(pathToModel):
     # Just in case you'd want to do stuff with your loaded model
     return model
 
+if(len(sys.argv)<3):
+	print("Too few arguments")
+	exit
 
-pathToTestinFile = "../../DataSets/dataOneOf5.csv"
-pathToModel = "../training/Models/Weights/modelTest.hd5"
+pathToTestinFile = sys.argv[1]
+pathToModel = sys.argv[2]
 batchSize = 100
 resultPath = "./results.csv"
 
