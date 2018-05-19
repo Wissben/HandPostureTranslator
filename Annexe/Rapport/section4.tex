@@ -38,7 +38,6 @@ Pour ce qui est de la codification, nous avons opté pour une la codification un
 
 \subsubsection{Variation des architectures}
 Pour trouver la meilleure architecture pour chacune des approches, nous avons écrit un script pour faire varier les différents paramètres, nous avons jugé bon de varier les suivants : 
-\newpage
 \begin{itemize}
 	\item Nombre de couches cachées, en effet comme vu en cours et en TP, se contenter d'une seule couche cachées peut s'avérer être un handicap pour le bon apprentissage de neurones, mais en rajouter trop peut nous conduire à un sur-apprentissage\footnote{Phénomène ou le modèle s'adapte beaucoup trop bien aux données d'apprentissage au dépens des données de testes}, nous avons donc fixé ce paramètre au maximum de 3.
 	
@@ -82,7 +81,6 @@ Danse cette approche, nous avons décidé de partitionné les donnés dans leur 
 	\caption{Partitionnement des données}
 		
 \end{table}
-\newpage
 \subsubsection{Apprentissage avec partitionnement one-left-user}\label{oneLeftLearning}
 \paragraph{}L'idée (comme suggérée dans \cite{datasetDetails} )est de séparer l'ensemble des instances $D$ en deux sous ensembles \textbf{Train} et \textbf{Test} en fonction de l'identifiant d'une utilisateur $id$ tel que : 
 \begin{itemize}

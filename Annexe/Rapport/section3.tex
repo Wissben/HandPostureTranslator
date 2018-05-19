@@ -62,6 +62,6 @@ L’approche par cluster essaye de minimiser la dépendance entre les données e
 		\caption{\small Modèle de main 3D avec marqueurs étiquetés}
 	\end{figure}
 \end{center}
-L’ensemble des données est ensuite parcourue en affectant chaque point $(x_i,y_i,z_i)$ au marqueur le plus proche.\\
+L’ensemble des données est ensuite parcourue en affectant chaque point $(x_i,y_i,z_i)$ au marqueur le plus proche (voir \cite{knn} et \cite{knn2}) .\\
 Le modèle 3D n’étant pas très fiable, ainsi que la différence entre les mains des utilisateurs génèrent un nombre important de collision, c’est à dire plusieurs point sont affectés au même marqueur. Pour y remédier, à l’affectation d’un point à un marqueur si ce dernier est déjà pris, on affecte le point au prochain marqueur le plus proche.\\
 Évidemment à l’arriver d’une nouvelle donnée, soit en utilisant la même méthode de collection de données que le data-set d’apprentissage ou bien une autre méthode, le même traitement est effectué afin que cette donnée devienne conforme avec ceux qu’on génère en utilisant cette approche.
