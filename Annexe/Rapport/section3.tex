@@ -24,6 +24,7 @@ Dans \cite{dataset}, on peut notamment trouvé une brève description des donné
 \begin{itemize}
 	\item Les deux premières colonnes Class/User représentent répsectivement l'identifiant du geste observé (1 à 5) et l'identifiant de l'utilisateur(cobaye) qui a porté le gant durant cette session de collecte de données.
 	\item Les 36 colonnes suivantes contiennent des nombres réels qui représentent les coordonnées cartésiennes en 3-dimensions $(x_i,y_i,z_i)$ des différents marqueurs $Marker_i$. \par Il est a noté d'après \cite{datasetDetails} et \cite{dataset} que les marqueurs sont non-étiquetés, c'est à dire que pour deux instances $I_1 et I_2$ du data-set, les coordonnés $(x_i^{I_1},y_i^{I_1},z_i^{I_1})$ et $(x_i^{I_2},y_i^{I_2},z_i^{I_2})$ ne désignent pas toujours les coordonnées du même marqueurs $i$. \par En raison des conditions de captage des données certaines instances ont des données manquantes représentées par \textbf{?}
+	\item Il est aussi mentionné dans \cite{datasetDetails} qu'au cours des séances de captage des données, certains objets qui ne sont pas des marqueurs on été capté par les capteurs, en conséquent un marqueurs en plus a été ajouté par erreur aux données, il peut être donc considéré comme un bruit.\label{noise}
 \end{itemize}
 \subsection{Analyse et prétraitement des données}\label{dataAnalysis}
 \paragraph{}
@@ -44,8 +45,7 @@ Une étape primordiale avant de se lancer dans les essaies d'apprentissage est l
 	\label{my-label}
 \end{table}
 \par 
-Nous pouvons observer que par exemple, pour le geste 2 \textbf{tous les doigts levés} chaque instance étiquetée par cette classe possède quasiment 
-tout les marqueurs visible à l'exception du dernier(puisque les marqueurs ne sont étiquetés on ne peut pas savoir le quel manque), il en est presque de même pour le geste 5 \textbf{(geste de saisie un sorte de poing ouvert légèrement)}, nous pouvons voir que qu'il y a une petite différence avec les données de la classe 2, cela est du au fait que les marqueurs placés aux ongles ne sont pas toujours visibles.\par 
+Nous pouvons observer que par exemple, pour le geste 2 \textbf{tous les doigts levés} chaque instance étiquetée par cette classe possède tout les marqueurs visible à l'exception du dernier(Ce marqueur est très probablement le marqueurs en plus mentionné dans \ref{noise}), il en est presque de même pour le geste 5 \textbf{(geste de saisie un sorte de poing ouvert légèrement)}, nous pouvons voir que qu'il y a une petite différence avec les données de la classe 2, cela est du au fait que les marqueurs placés aux ongles ne sont pas toujours visibles.\par 
 Pour le reste des classes, la classe 3 et 4 diffèrent en un seul marqueurs ou deux car les deux sont très similaires( \textbf{3} : un doigt levé, \textbf{4} : deux doigts levés), enfin pour les geste de la classe 1 \textbf{(Poing fermé)} le manque apparent de marqueurs visibles est expliqué par le fait que les marqueurs au jointure et extrémité des doigts soient masqués par la nature du geste en lui même.\par 
 Bien que les valeurs manquantes ont une grande signification pour nous humains, il faut tout de même traduire cette information pour le modèle, deux approches ont été pensée.
 \subsubsection{Approche naïve}\label{naiveApproache}

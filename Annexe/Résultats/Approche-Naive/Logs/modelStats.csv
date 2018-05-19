@@ -1,0 +1,187 @@
+Model;acc;val_acc;test_acc
+model : layers: [40, 50, 50, 10] ['relu', 'relu', 'relu', 'relu'] optimizer: Nadam;0.971985654070047;0.953869498915665;0.957434820468166
+model : layers: [40, 50, 50, 20] ['relu', 'relu', 'relu', 'relu'] optimizer: Nadam;0.971717828106399;0.96145674853115;0.956871382471956
+model : layers: [40, 50, 50, 30] ['relu', 'relu', 'relu', 'relu'] optimizer: Nadam;0.97297660004659;0.957056142310633;0.955949393023613
+model : layers: [40, 50, 20] ['relu', 'relu', 'relu'] optimizer: Nadam;0.970325142526685;0.951593316288747;0.955078625211289
+model : layers: [40, 50, 50, 20] ['relu', 'relu', 'relu', 'relu'] optimizer: Nadam;0.972387387268646;0.951138086583075;0.954771295395175
+model : layers: [40, 50, 50, 20] ['relu', 'relu', 'relu', 'relu'] optimizer: Adam;0.967593340199674;0.951896809572877;0.954259079034984
+model : layers: [40, 50, 50, 40] ['relu', 'relu', 'relu', 'relu'] optimizer: Nadam;0.96995018883391;0.957359630167936;0.953849305946832
+model : layers: [40, 50, 30] ['relu', 'relu', 'relu'] optimizer: Nadam;0.971610698442491;0.95220029932957;0.95338831122266
+model : layers: [40, 50, 50, 40] ['relu', 'relu', 'relu', 'relu'] optimizer: RMSprop;0.965638223959475;0.950379360608519;0.952978538134508
+model : layers: [40, 50, 50, 10] ['relu', 'relu', 'relu', 'relu'] optimizer: Nadam;0.97067331361671;0.953414258808576;0.952568765046355
+model : layers: [40, 30] ['relu', 'relu'] optimizer: Nadam;0.961486954011916;0.952807286259618;0.952466321774317
+model : layers: [40, 50, 30] ['relu', 'relu', 'relu'] optimizer: Nadam;0.963950935783725;0.94946888573072;0.952363878502279
+model : layers: [40, 50, 40] ['relu', 'relu', 'relu'] optimizer: Nadam;0.971798175110087;0.954021243748788;0.952261435230241
+model : layers: [40, 50, 50, 40] ['relu', 'relu', 'relu', 'relu'] optimizer: Adam;0.969843060312992;0.952807279385638;0.952158991958203
+model : layers: [40, 50, 50, 40] ['relu', 'relu', 'relu', 'relu'] optimizer: Adadelta;0.968503942403549;0.953414253291302;0.951493110689956
+model : layers: [40, 50, 50, 30] ['relu', 'relu', 'relu', 'relu'] optimizer: Nadam;0.973913982318206;0.95174506455886;0.950673564513651
+model : layers: [40, 50, 50, 20] ['relu', 'relu', 'relu', 'relu'] optimizer: Adam;0.964084845892113;0.94871016427852;0.950622342877632
+model : layers: [40, 50, 50, 40] ['relu', 'relu', 'relu', 'relu'] optimizer: RMSprop;0.967646902684988;0.948861907483594;0.950315013061517
+model : layers: [40, 50, 20] ['relu', 'relu', 'relu'] optimizer: Nadam;0.964486582864492;0.952048558114331;0.949802796701327
+model : layers: [40, 50, 50, 30] ['relu', 'relu', 'relu', 'relu'] optimizer: Adadelta;0.966093526890834;0.944157815576504;0.949802796701327
+model : layers: [40, 50, 30] ['relu', 'relu', 'relu'] optimizer: Adam;0.952863032883355;0.944916540013459;0.948266147620755
+model : layers: [40, 50, 50, 20] ['relu', 'relu', 'relu', 'relu'] optimizer: RMSprop;0.96595961422828;0.951441569194446;0.947395379808431
+model : layers: [40, 50, 50, 30] ['relu', 'relu', 'relu', 'relu'] optimizer: Adadelta;0.961540521247979;0.948558417817349;0.947395379808431
+model : layers: [40, 40] ['relu', 'relu'] optimizer: Nadam;0.956800037960559;0.945068277339472;0.947139271628336
+model : layers: [40, 50, 50, 30] ['relu', 'relu', 'relu', 'relu'] optimizer: Adam;0.963897370782558;0.946585733630046;0.946985606720279
+model : layers: [40, 50, 50, 30] ['relu', 'relu', 'relu', 'relu'] optimizer: Adam;0.963388503450262;0.948406674883615;0.946780720176202
+model : layers: [40, 50, 30] ['relu', 'relu', 'relu'] optimizer: Adam;0.955327006916042;0.941274657868109;0.946627055268145
+model : layers: [40, 50, 30] ['relu', 'relu', 'relu'] optimizer: Adadelta;0.956317954188825;0.947040972380428;0.946114838907955
+model : layers: [40, 50, 30] ['relu', 'relu', 'relu'] optimizer: Adadelta;0.959210451219223;0.945220027418527;0.946063617271935
+model : layers: [40, 30] ['relu', 'relu'] optimizer: Nadam;0.954844924932224;0.942792106922914;0.945909952363878
+model : layers: [40, 50, 10] ['relu', 'relu', 'relu'] optimizer: Nadam;0.957416032498379;0.948558418179137;0.94580750909184
+model : layers: [40, 50, 50, 30] ['relu', 'relu', 'relu', 'relu'] optimizer: Adadelta;0.960790611851023;0.943702576916569;0.945448957639707
+model : layers: [40, 50, 50, 10] ['relu', 'relu', 'relu', 'relu'] optimizer: Adadelta;0.963227809066145;0.948103185036476;0.945192849459612
+model : layers: [40, 50, 10] ['relu', 'relu', 'relu'] optimizer: Nadam;0.960656698888355;0.944309556339507;0.945090406187573
+model : layers: [40, 50, 50, 40] ['relu', 'relu', 'relu', 'relu'] optimizer: Nadam;0.973324773294885;0.944461303162466;0.945090406187573
+model : layers: [40, 40] ['relu', 'relu'] optimizer: Nadam;0.961540519913427;0.9371775377864;0.944936741279516
+model : layers: [40, 50, 50, 40] ['relu', 'relu', 'relu', 'relu'] optimizer: Adadelta;0.960897742172628;0.945068282856746;0.944834298007478
+model : layers: [40, 50, 50, 30] ['relu', 'relu', 'relu', 'relu'] optimizer: RMSprop;0.962638599161637;0.94006069504256;0.944783076371459
+model : layers: [40, 50, 40] ['relu', 'relu', 'relu'] optimizer: Nadam;0.97128930869729;0.945220026242715;0.944424524919326
+model : layers: [40, 50, 40] ['relu', 'relu', 'relu'] optimizer: Adam;0.959826447915313;0.940515931441317;0.943758643651078
+model : layers: [40, 50, 50, 30] ['relu', 'relu', 'relu', 'relu'] optimizer: Adadelta;0.960870959531566;0.939908948762283;0.943451313834964
+model : layers: [40, 50, 50, 20] ['relu', 'relu', 'relu', 'relu'] optimizer: Adadelta;0.960121053627431;0.940667674194156;0.943195205654869
+model : layers: [40, 50, 50, 10] ['relu', 'relu', 'relu', 'relu'] optimizer: Adadelta;0.955889438649277;0.945068279329309;0.94314398401885
+model : layers: [40, 50, 50, 20] ['relu', 'relu', 'relu', 'relu'] optimizer: Adadelta;0.95610369593376;0.944309561947228;0.942734210930697
+model : layers: [40, 50, 20] ['relu', 'relu', 'relu'] optimizer: Adadelta;0.95500561792432;0.940971164583979;0.942682989294678
+model : layers: [40, 50, 50, 10] ['relu', 'relu', 'relu', 'relu'] optimizer: Adam;0.961513739545572;0.945978750589223;0.942631767658659
+model : layers: [40, 50, 50, 40] ['relu', 'relu', 'relu', 'relu'] optimizer: Adam;0.966093524636782;0.94021244340312;0.942631767658659
+model : layers: [40, 50, 20] ['relu', 'relu', 'relu'] optimizer: Adadelta;0.956237607523564;0.943702580082218;0.94258054602264
+model : layers: [40, 40] ['relu', 'relu'] optimizer: Adam;0.949488452853857;0.9399089482196;0.941812221482354
+model : layers: [40, 50, 50, 10] ['relu', 'relu', 'relu', 'relu'] optimizer: Adadelta;0.952488076540633;0.938239759215817;0.941760999846335
+model : layers: [40, 50, 40] ['relu', 'relu', 'relu'] optimizer: RMSprop;0.962665380525617;0.939908951747038;0.940736567125954
+model : layers: [40, 50, 50, 30] ['relu', 'relu', 'relu', 'relu'] optimizer: RMSprop;0.96628100070415;0.941274656420955;0.940582902217897
+model : layers: [40, 50, 40] ['relu', 'relu', 'relu'] optimizer: RMSprop;0.963736677056139;0.941881632226009;0.940531680581877
+model : layers: [40, 50, 20] ['relu', 'relu', 'relu'] optimizer: RMSprop;0.955059183244758;0.93975720736615;0.940480458945859
+model : layers: [40, 50, 50, 10] ['relu', 'relu', 'relu', 'relu'] optimizer: Adadelta;0.950693659116028;0.944157811687278;0.940121907493725
+model : layers: [40, 50, 40] ['relu', 'relu', 'relu'] optimizer: Adadelta;0.953907542564827;0.937481031160977;0.940019464221687
+model : layers: [40, 50, 20] ['relu', 'relu', 'relu'] optimizer: Adam;0.955862654431017;0.945068280957357;0.939609691133535
+model : layers: [40, 20] ['relu', 'relu'] optimizer: Nadam;0.94646204415703;0.938998480487123;0.938841366593249
+model : layers: [40, 50, 50, 40] ['relu', 'relu', 'relu', 'relu'] optimizer: Adadelta;0.96413841374756;0.939757203657819;0.938687701685192
+model : layers: [40, 50, 20] ['relu', 'relu', 'relu'] optimizer: RMSprop;0.953345113162268;0.936570558453909;0.938329150233058
+model : layers: [40, 50, 40] ['relu', 'relu', 'relu'] optimizer: Adam;0.960147835087193;0.935660092259032;0.937816933872868
+model : layers: [40, 50, 30] ['relu', 'relu', 'relu'] optimizer: Adadelta;0.949783058565975;0.931714715472845;0.937765712236849
+model : layers: [40, 50, 30] ['relu', 'relu', 'relu'] optimizer: RMSprop;0.956987513670343;0.935356596894619;0.937612047328792
+model : layers: [40, 50, 50, 10] ['relu', 'relu', 'relu', 'relu'] optimizer: RMSprop;0.951229305934993;0.942488615266832;0.937560825692773
+model : layers: [40, 50, 20] ['relu', 'relu', 'relu'] optimizer: Adadelta;0.948256462258489;0.937481027723987;0.937509604056753
+model : layers: [40, 50, 30] ['relu', 'relu', 'relu'] optimizer: RMSprop;0.959906796362105;0.938239759668052;0.937304717512677
+model : layers: [40, 50, 40] ['relu', 'relu', 'relu'] optimizer: Adadelta;0.955594832541263;0.935508349506193;0.937304717512677
+model : layers: [40, 50, 50, 20] ['relu', 'relu', 'relu', 'relu'] optimizer: Adadelta;0.955219879129446;0.937329288408137;0.936587614608411
+model : layers: [40, 20] ['relu', 'relu'] optimizer: RMSprop;0.944399802569463;0.9361153252208;0.935921733340163
+model : layers: [40, 50, 40] ['relu', 'relu', 'relu'] optimizer: Adadelta;0.954978838118381;0.935053112655199;0.935921733340163
+model : layers: [40, 50, 50, 40] ['relu', 'relu', 'relu', 'relu'] optimizer: Adamax;0.947104822893953;0.934901368093418;0.935716846796087
+model : layers: [40, 50, 50, 20] ['relu', 'relu', 'relu', 'relu'] optimizer: Adadelta;0.956612564990118;0.934294387946903;0.93551196025201
+model : layers: [40, 50, 50, 20] ['relu', 'relu', 'relu', 'relu'] optimizer: Adamax;0.948042205446527;0.93687404920552;0.935307073707934
+model : layers: [40, 50, 50, 30] ['relu', 'relu', 'relu', 'relu'] optimizer: Adamax;0.949542016201202;0.934901365199111;0.935255852071915
+model : layers: [40, 50, 50, 30] ['relu', 'relu', 'relu', 'relu'] optimizer: Adamax;0.949756276525142;0.933990891225783;0.934385084259591
+model : layers: [40, 50, 50, 20] ['relu', 'relu', 'relu', 'relu'] optimizer: RMSprop;0.965932831529749;0.929286798323775;0.93407775444653
+model : layers: [40, 50, 20] ['relu', 'relu', 'relu'] optimizer: Adam;0.945042580725314;0.932776933284378;0.934077754443477
+model : layers: [40, 50, 20] ['relu', 'relu', 'relu'] optimizer: Adadelta;0.951443563966569;0.933080425030907;0.933975311171439
+model : layers: [40, 50, 50, 10] ['relu', 'relu', 'relu', 'relu'] optimizer: Adamax;0.944721191280228;0.933839151457698;0.933975311171439
+model : layers: [40, 20] ['relu', 'relu'] optimizer: Nadam;0.937356042973044;0.938391504591622;0.933463094811248
+model : layers: [40, 50, 10] ['relu', 'relu', 'relu'] optimizer: RMSprop;0.938239860601076;0.932928681464043;0.933463094811248
+model : layers: [40, 10] ['relu', 'relu'] optimizer: Nadam;0.942016173905799;0.93702579973681;0.93284843517902
+model : layers: [40, 50, 50, 40] ['relu', 'relu', 'relu', 'relu'] optimizer: Adamax;0.946997691933807;0.930955996010481;0.932336218818829
+model : layers: [40, 50, 40] ['relu', 'relu', 'relu'] optimizer: Adadelta;0.951764953354187;0.93550834335579;0.931670337550581
+model : layers: [40, 40] ['relu', 'relu'] optimizer: Adadelta;0.939766456665917;0.930045523032071;0.931619115914562
+model : layers: [40, 50, 20] ['relu', 'relu', 'relu'] optimizer: Adamax;0.94391772105178;0.932625188541702;0.931363007734467
+model : layers: [40, 50, 50, 40] ['relu', 'relu', 'relu', 'relu'] optimizer: Adadelta;0.962772510170368;0.931259486128962;0.931004456282333
+model : layers: [40, 50, 10] ['relu', 'relu', 'relu'] optimizer: Adadelta;0.946328132152174;0.930804245750531;0.930184910106029
+model : layers: [40, 30] ['relu', 'relu'] optimizer: RMSprop;0.935374149538541;0.930804249097074;0.929723915381857
+model : layers: [40, 50, 30] ['relu', 'relu', 'relu'] optimizer: Adadelta;0.958728371802341;0.9297420294766;0.929672693745838
+model : layers: [40, 40] ['relu', 'relu'] optimizer: Adadelta;0.947720817897908;0.932776931475435;0.929519028837781
+model : layers: [40, 50, 40] ['relu', 'relu', 'relu'] optimizer: Adamax;0.942685731171578;0.929742036712369;0.92900681247759
+model : layers: [40, 50, 20] ['relu', 'relu', 'relu'] optimizer: Adamax;0.941185921074601;0.93323217203476;0.928801925933514
+model : layers: [40, 50, 30] ['relu', 'relu', 'relu'] optimizer: Adamax;0.942176869547842;0.931259482058842;0.928699482661476
+model : layers: [40, 30] ['relu', 'relu'] optimizer: Adadelta;0.936686486384119;0.927162360258638;0.928443374481381
+model : layers: [40, 30] ['relu', 'relu'] optimizer: RMSprop;0.932856606839459;0.924886189842079;0.928187266301286
+model : layers: [40, 50, 50, 40] ['relu', 'relu', 'relu', 'relu'] optimizer: SGD;0.937730995784633;0.929893779826996;0.92793115812119
+model : layers: [40, 40] ['relu', 'relu'] optimizer: Adam;0.93599014375709;0.920030348941299;0.926599395584695
+model : layers: [40, 50, 50, 10] ['relu', 'relu', 'relu', 'relu'] optimizer: RMSprop;0.944908667986136;0.923368740787275;0.926087179224504
+model : layers: [40, 20] ['relu', 'relu'] optimizer: Adadelta;0.933499383437269;0.92412746929435;0.925933514316447
+model : layers: [40, 50, 10] ['relu', 'relu', 'relu'] optimizer: Adam;0.932803044826665;0.925796657303215;0.925677406136352
+model : layers: [40, 30] ['relu', 'relu'] optimizer: Adam;0.932936957112479;0.927010624470226;0.925318854684219
+model : layers: [40, 50, 50, 20] ['relu', 'relu', 'relu', 'relu'] optimizer: Adamax;0.94606030994315;0.924886195902035;0.9252676330482
+model : layers: [40, 50, 10] ['relu', 'relu', 'relu'] optimizer: Adadelta;0.935641973209826;0.923672234161852;0.924652973415971
+model : layers: [40, 40] ['relu', 'relu'] optimizer: RMSprop;0.941078791934297;0.92534142488413;0.924499308507914
+model : layers: [40, 30] ['relu', 'relu'] optimizer: Adadelta;0.937463174967628;0.927465860507195;0.92414075705578
+model : layers: [40, 50, 10] ['relu', 'relu', 'relu'] optimizer: RMSprop;0.945256839695546;0.925341427235755;0.924089535419761
+model : layers: [40, 20] ['relu', 'relu'] optimizer: RMSprop;0.935722319313171;0.921244308329859;0.923884648875685
+model : layers: [40, 50, 10] ['relu', 'relu', 'relu'] optimizer: Adadelta;0.933285127002046;0.918816389643187;0.923782205603647
+model : layers: [40, 50, 50, 40] ['relu', 'relu', 'relu', 'relu'] optimizer: SGD;0.933847555766064;0.925948412175967;0.922194334887056
+model : layers: [40, 50, 10] ['relu', 'relu', 'relu'] optimizer: Adamax;0.932454873359901;0.921244314118474;0.922143113251037
+model : layers: [40, 40] ['relu', 'relu'] optimizer: Adadelta;0.936713266866911;0.91305007757294;0.922091891615018
+model : layers: [40, 40] ['relu', 'relu'] optimizer: Adamax;0.929160640953477;0.926251898043434;0.921938226706961
+model : layers: [40, 20] ['relu', 'relu'] optimizer: Adam;0.92519685231571;0.918361155596054;0.921221123802694
+model : layers: [40, 50, 50, 30] ['relu', 'relu', 'relu', 'relu'] optimizer: SGD;0.927419790669153;0.917298938688993;0.920196691082313
+model : layers: [40, 50, 30] ['relu', 'relu', 'relu'] optimizer: Adamax;0.931517491426713;0.92427921078093;0.920145469446294
+model : layers: [40, 40] ['relu', 'relu'] optimizer: Adadelta;0.934999196088412;0.91502276465455;0.919940582902218
+model : layers: [40, 20] ['relu', 'relu'] optimizer: Adadelta;0.930928277429154;0.917602423561542;0.918608820365722
+model : layers: [40, 50, 50, 30] ['relu', 'relu', 'relu', 'relu'] optimizer: Adagrad;0.93266912927152;0.915933237994748;0.917533166009322
+model : layers: [40, 50, 50, 10] ['relu', 'relu', 'relu', 'relu'] optimizer: Adamax;0.927393007370392;0.918209405064764;0.91655995492496
+model : layers: [40, 50, 10] ['relu', 'relu', 'relu'] optimizer: Adam;0.934490332268092;0.912291347256922;0.915279414024484
+model : layers: [40, 50, 50, 40] ['relu', 'relu', 'relu', 'relu'] optimizer: Adagrad;0.938025603546469;0.915933236185806;0.915023305844389
+model : layers: [40, 50, 10] ['relu', 'relu', 'relu'] optimizer: Adadelta;0.93181209393016;0.912291350874807;0.914050094760027
+model : layers: [40, 40] ['relu', 'relu'] optimizer: Adamax;0.927151965305734;0.914719273631598;0.913537878399836
+model : layers: [40, 50, 10] ['relu', 'relu', 'relu'] optimizer: Adamax;0.918340566551764;0.916084977581939;0.911437791323055
+model : layers: [40, 50, 50, 40] ['relu', 'relu', 'relu', 'relu'] optimizer: Adagrad;0.928169694134059;0.909863423414766;0.911079239870921
+model : layers: [40, 50, 50, 20] ['relu', 'relu', 'relu', 'relu'] optimizer: Adagrad;0.922866787561307;0.906525038804559;0.911028018234902
+model : layers: [40, 50, 40] ['relu', 'relu', 'relu'] optimizer: SGD;0.927018053396659;0.90849772461991;0.910515801874712
+model : layers: [40, 50, 50, 10] ['relu', 'relu', 'relu', 'relu'] optimizer: Adagrad;0.92495581085128;0.911077396641733;0.910157250422578
+model : layers: [40, 50, 50, 30] ['relu', 'relu', 'relu', 'relu'] optimizer: SGD;0.919947506689388;0.910015172227561;0.90897915279414
+model : layers: [40, 50, 20] ['relu', 'relu', 'relu'] optimizer: SGD;0.913519740072748;0.907587255078491;0.908723044614045
+model : layers: [40, 20] ['relu', 'relu'] optimizer: Adam;0.921956186730296;0.907890745106525;0.908671822978026
+model : layers: [40, 50, 50, 30] ['relu', 'relu', 'relu', 'relu'] optimizer: Adagrad;0.927446571790487;0.90804249174859;0.908671822978026
+model : layers: [40, 50, 50, 10] ['relu', 'relu', 'relu', 'relu'] optimizer: SGD;0.912100274310356;0.908042484784162;0.908159606617835
+model : layers: [40, 30] ['relu', 'relu'] optimizer: Adam;0.920724195515543;0.911684376516907;0.907698611893664
+model : layers: [40, 50, 40] ['relu', 'relu', 'relu'] optimizer: Adagrad;0.921956187426306;0.90349013472544;0.90682784408134
+model : layers: [40, 50, 50, 10] ['relu', 'relu', 'relu', 'relu'] optimizer: Adagrad;0.923268522694687;0.907587254626255;0.90575218972494
+model : layers: [40, 20] ['relu', 'relu'] optimizer: Adadelta;0.921929404746931;0.899999993795328;0.905547303180864
+model : layers: [40, 20] ['relu', 'relu'] optimizer: Adadelta;0.930633673460254;0.906069804395638;0.905496081544844
+model : layers: [40, 50, 30] ['relu', 'relu', 'relu'] optimizer: Adagrad;0.916680060474317;0.902427925325489;0.904369205552425
+model : layers: [40, 50, 40] ['relu', 'relu', 'relu'] optimizer: SGD;0.926750229948864;0.904097112610778;0.904317983916406
+model : layers: [40, 50, 50, 10] ['relu', 'relu', 'relu', 'relu'] optimizer: Adam;0.917001447550415;0.907435506356142;0.904317983916406
+model : layers: [40, 50, 20] ['relu', 'relu', 'relu'] optimizer: Adagrad;0.916278326337061;0.908194234591876;0.902832556471854
+model : layers: [40, 50, 30] ['relu', 'relu', 'relu'] optimizer: SGD;0.920188548434776;0.901669190487116;0.901449572299339
+model : layers: [40, 50, 30] ['relu', 'relu', 'relu'] optimizer: SGD;0.903637042553361;0.90273141137385;0.901244685755263
+model : layers: [40, 40] ['relu', 'relu'] optimizer: SGD;0.915501633960616;0.903034905200663;0.900681247759053
+model : layers: [40, 50, 50, 20] ['relu', 'relu', 'relu', 'relu'] optimizer: Adagrad;0.921045587457327;0.899241275327882;0.900630026123034
+model : layers: [40, 30] ['relu', 'relu'] optimizer: SGD;0.906422410743571;0.901213960510103;0.900271474670901
+model : layers: [40, 40] ['relu', 'relu'] optimizer: SGD;0.912100271794503;0.902579663736867;0.899554371766634
+model : layers: [40, 50, 20] ['relu', 'relu', 'relu'] optimizer: Adagrad;0.915662331122388;0.899848261805695;0.898581160682272
+model : layers: [40, 10] ['relu', 'relu'] optimizer: Adamax;0.903797740111028;0.896965103283276;0.897300619781796
+model : layers: [40, 50, 40] ['relu', 'relu', 'relu'] optimizer: Adagrad;0.916305104412553;0.901820942375113;0.895610305793167
+model : layers: [40, 10] ['relu', 'relu'] optimizer: Adam;0.914055387172671;0.897116841151971;0.8938175485325
+model : layers: [40, 20] ['relu', 'relu'] optimizer: Adamax;0.906342062743758;0.898634288488281;0.893356553808329
+model : layers: [40, 30] ['relu', 'relu'] optimizer: SGD;0.894450692545844;0.894537175642341;0.893100445628233
+model : layers: [40, 40] ['relu', 'relu'] optimizer: RMSprop;0.9264020575626;0.888315628077807;0.892998002356195
+model : layers: [40, 10] ['relu', 'relu'] optimizer: Adadelta;0.897557446745788;0.888770862938963;0.890232034011166
+model : layers: [40, 50, 50, 10] ['relu', 'relu', 'relu', 'relu'] optimizer: SGD;0.897985963166523;0.894233683805364;0.888644163294576
+model : layers: [40, 10] ['relu', 'relu'] optimizer: RMSprop;0.891343937202912;0.884066761173138;0.888592941658557
+model : layers: [40, 50, 30] ['relu', 'relu', 'relu'] optimizer: Adagrad;0.899539340557031;0.886342940453513;0.886441632945756
+model : layers: [40, 20] ['relu', 'relu'] optimizer: SGD;0.903503132406661;0.886191197610227;0.886031859857604
+model : layers: [40, 50, 50, 20] ['relu', 'relu', 'relu', 'relu'] optimizer: SGD;0.899619687222293;0.883459782021541;0.885724530041489
+model : layers: [40, 10] ['relu', 'relu'] optimizer: Adam;0.885746423155668;0.876631256481223;0.87758028991446
+model : layers: [40, 10] ['relu', 'relu'] optimizer: Adadelta;0.895013121443956;0.870864946310365;0.874353326845259
+model : layers: [40, 40] ['relu', 'relu'] optimizer: Adagrad;0.885960678914037;0.868285281795652;0.874353326845259
+model : layers: [40, 10] ['relu', 'relu'] optimizer: Adadelta;0.884085915593612;0.872534145986907;0.872560569584593
+model : layers: [40, 50, 10] ['relu', 'relu', 'relu'] optimizer: Adagrad;0.883496705184656;0.871471925914197;0.872304461404497
+model : layers: [40, 20] ['relu', 'relu'] optimizer: Adagrad;0.881032726078758;0.873596358733401;0.871792245044307
+model : layers: [40, 50, 20] ['relu', 'relu', 'relu'] optimizer: SGD;0.878381272051674;0.876024282846899;0.870358039235773
+model : layers: [40, 50, 10] ['relu', 'relu', 'relu'] optimizer: SGD;0.869087794595988;0.872534140107845;0.868616503611125
+model : layers: [40, 40] ['relu', 'relu'] optimizer: Adagrad;0.881729068447177;0.870864943054269;0.864416329457563
+model : layers: [40, 20] ['relu', 'relu'] optimizer: Adagrad;0.875622688341526;0.868588768205802;0.864365107821544
+model : layers: [40, 10] ['relu', 'relu'] optimizer: Adamax;0.860383526106155;0.853566010732752;0.857603851867029
+model : layers: [40, 50, 10] ['relu', 'relu', 'relu'] optimizer: Adagrad;0.862847502357774;0.859180569648743;0.856067202786457
+model : layers: [40, 20] ['relu', 'relu'] optimizer: SGD;0.855482351589014;0.84901364846367;0.848486400655637
+model : layers: [40, 50, 10] ['relu', 'relu', 'relu'] optimizer: SGD;0.852643420597412;0.845371780337622;0.844491113046151
+model : layers: [40, 10] ['relu', 'relu'] optimizer: Nadam;0.831940649614968;0.834294385902798;0.833939456026225
+model : layers: [40, 10] ['relu', 'relu'] optimizer: Adagrad;0.844099844614384;0.834294383822515;0.830814936229063
+model : layers: [40, 10] ['relu', 'relu'] optimizer: Adadelta;0.827119822532531;0.815022762972234;0.821338933565538
+model : layers: [40, 10] ['relu', 'relu'] optimizer: Adagrad;0.809122073997727;0.799696513029078;0.798084310812887
+model : layers: [40, 10] ['relu', 'relu'] optimizer: SGD;0.737398896837881;0.743854323540544;0.732264508528402
+model : layers: [40, 10] ['relu', 'relu'] optimizer: RMSprop;0.747736890041181;0.697572076718615;0.693182400248917
+model : layers: [40, 10] ['relu', 'relu'] optimizer: SGD;0.718838717186034;0.685280729407425;0.673974286741772
+model : layers: [40, 50, 40] ['relu', 'relu', 'relu'] optimizer: Adamax;0.605817129171503;0.607435506464679;0.603698202123629
+model : layers: [40, 20] ['relu', 'relu'] optimizer: Adamax;0.57967753982217;0.576479520258665;0.573323771961277
+model : layers: [40, 50, 50, 20] ['relu', 'relu', 'relu', 'relu'] optimizer: SGD;0.209786275475842;0.214719271940237;0.207498847514716
