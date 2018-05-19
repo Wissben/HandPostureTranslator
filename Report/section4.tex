@@ -9,9 +9,9 @@ Après avoir analysée et traité les données, nous avons ensuite entamer la co
 	\node (pro2a) [process] {Pré-traitement des données};
 	\node (pro2b) [process, below of=pro2a,minimum width = 5cm, xshift=-4cm] {Approche naïve};
 	\node (pro2c) [process, below of=pro2a,minimum width = 5cm, xshift=5cm] {Approche par clustering};
-	\node (pro2ca) [process, below of=pro2c,text centered, text width=3cm,minimum height=2cm] {Apprentissage \textbf{one-user-left}};
-	\node (pro2ba) [process, below of=pro2b, xshift=-2cm,text centered, text width=3cm,minimum height=2cm] {Apprentissage par partitionnement aléatoire};
-	\node (pro2bb) [process, below of=pro2b, xshift=2cm,text centered, text width=3cm,minimum height=2cm] {Apprentissage \textbf{one-user-left}};
+	\node (pro2ca) [process, below of=pro2c,text centered, text width=3.5cm,minimum height=2cm] {Apprentissage avec partitionnement \textbf{one-user-left}};
+	\node (pro2ba) [process, below of=pro2b, xshift=-2.5cm,text centered, text width=3.5cm,minimum height=2cm] {Apprentissage avec partitionnement aléatoire};
+	\node (pro2bb) [process, below of=pro2b, xshift=2.5cm,text centered, text width=3.5cm,minimum height=2cm] {Apprentissage avec partitionnement \textbf{one-user-left}};
 	\draw [arrow] (pro2a) -- (pro2b);
 	\draw [arrow] (pro2a) -- (pro2c);
 	\draw [arrow] (pro2b) -- (pro2ba);
@@ -48,7 +48,7 @@ Pour trouver la meilleure architecture pour chacune des approches, nous avons é
 \end{itemize}
 
 
-\subsubsection{Apprentissage par partitionnement aléatoire}\label{randomPartLearning}
+\subsubsection{Apprentissage avec partitionnement aléatoire}\label{randomPartLearning}
 Danse cette approche, nous avons décidé de partitionné les donnés dans leur intégralité en 3 sous ensembles : 
 \begin{itemize}
 	\item $A$ Ensemble des instances sur les quelles sera lancé l'apprentissage.
@@ -83,8 +83,8 @@ Danse cette approche, nous avons décidé de partitionné les donnés dans leur 
 		
 \end{table}
 \newpage
-\subsubsection{Apprentissage par one-left-user}\label{oneLeftLearning}
-\paragraph{}L'idée est de séparer l'ensemble des instances $D$ en deux sous ensembles \textbf{Train} et \textbf{Test} en fonction de l'identifiant d'une utilisateur $id$ tel que : 
+\subsubsection{Apprentissage avec partitionnement one-left-user}\label{oneLeftLearning}
+\paragraph{}L'idée (comme suggérée dans \cite{datasetDetails} )est de séparer l'ensemble des instances $D$ en deux sous ensembles \textbf{Train} et \textbf{Test} en fonction de l'identifiant d'une utilisateur $id$ tel que : 
 \begin{itemize}
 	\item \textbf{Train} contient l'ensemble des instances ou $D[user]\ne id$
 	\item \textbf{Test} contient l'ensemble des instances ou $D[user] = id$
