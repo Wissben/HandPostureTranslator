@@ -50,6 +50,18 @@ Pour le reste des classes, la classe 3 et 4 diffèrent en un seul marqueurs ou d
 Bien que les valeurs manquantes ont une grande signification pour nous humains, il faut tout de même traduire cette information pour le modèle, deux approches ont été pensée.
 \subsubsection{Approche naïve}\label{naiveApproache}
 \paragraph{}
-Affecter une(des) valeur(es) aux données manquantes est une tâche souvent ardue, une multitude de théories existent sur le sujet, mais parfois la solution la plus simple semble être la plus efficace, nous avons simplement remplacé le valeurs manquantes par des \textbf{zéros}, ce choix est appuyé par un raisonnement fait à partir de l'analyse faite préalablement, en effet chaque classe de geste suit un certain motif(pattern) de valeurs manquantes, autrement dit si nous devions remplacer ses valeurs manquante par une approximation(une moyenne sur les valeurs de la colonne par exemple) cela pourrait rapprocher les instances entre elles et donc pourrait fausser l'apprentissage, car les valeurs des attributs seraient trop proches l'une d'entre elles, les remplacer par une valeur nulle pourra en théorie aider le modèle a mieux distinguer les classes, pour ainsi mieux approximer le pattern que suivent ces données.	
+Affecter une(des) valeur(es) aux données manquantes est une tâche souvent ardue, une multitude de théories existent sur le sujet, mais parfois la solution la plus simple semble être la plus efficace, nous avons simplement remplacé le valeurs manquantes par des \textbf{zéros}, ce choix est appuyé par un raisonnement fait à partir de l'analyse faite préalablement, en effet chaque classe de geste suit un certain motif(pattern) de valeurs manquantes, autrement dit si nous devions remplacer ses valeurs manquante par une approximation(une moyenne sur les valeurs de la colonne par exemple) cela pourrait rapprocher les instances entre elles et donc pourrait fausser l'apprentissage, car les valeurs des attributs seraient trop proches l'une d'entre elles, les remplacer par une valeur nulle pourra en théorie aider le modèle a mieux distinguer les classes, pour ainsi mieux approximer le pattern que suivent ces données.\\
+Cependant, le pattern résultant d’un tel remplacement de données dépend surtout de la méthode dont les données ont été collectées. Comme expliqué précédemment, les données manquantes sont dû au fait que la méthode utilisée pour les collecter ne détectait pas tous les marqueurs, certains gestes éclipsaient certains marqueurs, d’où le pattern de données manquantes.	
 \subsubsection{Approche par Clustering}\label{clusterApproache}
 \paragraph{}
+L’approche par cluster essaye de minimiser la dépendance entre les données et la méthode dont elles sont collectées. L’idée c’est d’appliquer une sorte d’étiquetage de marqueurs en regroupant les coordonnées susceptibles d’appartenir au même marqueur dans un cluster. Nous avons utilisé un modèle de main 3D pour simuler les cinq gestes et collecter les coordonnées des marqueurs étiquetés.\\
+\begin{center}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.4]{images/3DModel.png}
+		\caption{\small Modèle de main 3D avec marqueurs étiquetés}
+	\end{figure}
+\end{center}
+L’ensemble des données est ensuite parcourue en affectant chaque point $(x_i,y_i,z_i)$ au marqueur le plus proche.\\
+Le modèle 3D n’étant pas très fiable, ainsi que la différence entre les mains des utilisateurs génèrent un nombre important de collision, c’est à dire plusieurs point sont affectés au même marqueur. Pour y remédier, à l’affectation d’un point à un marqueur si ce dernier est déjà pris, on affecte le point au prochain marqueur le plus proche.\\
+Évidemment à l’arriver d’une nouvelle donnée, soit en utilisant la même méthode de collection de données que le data-set d’apprentissage ou bien une autre méthode, le même traitement est effectué afin que cette donnée devienne conforme avec ceux qu’on génère en utilisant cette approche.
