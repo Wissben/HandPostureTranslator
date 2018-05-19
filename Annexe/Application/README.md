@@ -45,12 +45,11 @@ La fenêtre suivante devrait apparaître : <br/>
 	
 Le serveur est listé on se connecte en appuyant dessus.
 
-5. Revenir à l'application desktop et selectionenr un appareil mobile
+5. Revenir à l'application desktop et selectionenr un geste à envoyer 
 	<p align="center">
   	<img src="Annexe/Application/Screenshots%20Application/Desktop%20simulation%20de%20gant.png"/>
 	</p>
-6. Selectionner un(des) geste(s) à envoyer au mobile.
-7. Le téléphone reçoit donc un message contenant les gestes envoyés, l'application mobile lancera donc la prédiction à l'aide du modèle chargé au préalable comme suit : 
+6. Le téléphone reçoit donc un message contenant les gestes envoyés, l'application mobile lancera donc la prédiction à l'aide du modèle chargé au préalable comme suit : 
 	<p align="center">
   	<img src="Annexe/Application/Screenshots%20Application/Traduction%20par%20gant.png" width="35%"/>
 	</p>
