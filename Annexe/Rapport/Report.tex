@@ -1,0 +1,102 @@
+% !TeX spellcheck = fr-toutesvariantes
+\documentclass[12pt]{article}
+\usepackage{longtable}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage[utf8]{inpu	tenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{fixltx2e}
+\usepackage{charter}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{soul}
+\usepackage[colorlinks=true, linkcolor=blue]{hyperref}
+\usepackage[a4paper, width=150mm, top=25mm, bottom=25mm]{geometry}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage[final]{pdfpages}
+\usepackage[linguistics]{forest}
+\usepackage[final]{pdfpages}
+\usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
+\setlist[itemize]{label=\textbullet}
+\usepackage[linesnumbered,algoruled,french,onelanguage]{algorithm2e}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage[noend]{algpseudocode}
+\usepackage{tabularx}  % for tabularx
+% to make cells in table have decent spacing
+\usepackage{diagbox}
+\usepackage{color, colortbl}
+\usepackage{array}
+\usepackage{tabularx} % in the preamble
+\usepackage{csvsimple}
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=15mm,
+	top=15mm,
+}
+\usepackage{wrapfig}
+\usepackage{multirow}
+ \usepackage{booktabs}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\def \hfillx {\hspace*{-\textwidth} \hfill}
+
+\usepackage[justification=centering]{caption}
+%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%% Custom headers/footers (fancyhdr package)
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyhead{}											% No page header
+\fancyfoot[L]{}											% Empty 
+\fancyfoot[C]{}											% Empty
+\fancyfoot[R]{\thepage}									% Pagenumbering
+\renewcommand{\headrulewidth}{0pt}			% Remove header underlines
+\renewcommand{\footrulewidth}{0pt}				% Remove footer underlines
+\setlength{\headheight}{13.6pt}
+
+\setlength{\parindent}{1em}
+
+\begin{document}
+\hypersetup{hidelinks}
+\includepdf[pages=1]{Page_garde.pdf} 
+\tableofcontents
+
+\pagenumbering{arabic}
+\newpage
+
+%%Include Part 1
+\input{section1.tex}
+\input{section2.tex}
+\input{section3.tex}
+\input{section4.tex}
+\input{section5.tex}
+\input{section6.tex}
+\newpage
+\listoffigures
+\listoftables
+\bibliographystyle{abbrv}  
+\bibliography{biblio.bib}
+\input{appendix.tex}
+\end{document}}\grid
