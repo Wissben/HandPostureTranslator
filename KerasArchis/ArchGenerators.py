@@ -81,6 +81,9 @@ def exludeUser(values,userId):
 # values = selector.getData()
 
 
+#MUST SPECIFY WHERE THE DATA IS
+
+
 data = read_csv("/home/wiss/CODES/TP-AARN/Mini-Project/DataSets/dataOneOf5.csv").replace('?', 0)
 leftUser, values = exludeUser(data.values, 14)
 values = values[1:, :]
@@ -115,3 +118,4 @@ model, score = variator.trainCustom(train_X,train_Y,test_X,test_Y, paramGenerato
 #Training the model with none-left-user
 # values = data.values[1:,:]
 # model, score = variator.train(values[:,2:-5],values[:,-5:], 0.75,paramGenerator)
+

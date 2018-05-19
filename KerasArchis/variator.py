@@ -3,8 +3,6 @@ from tensorflow.python.keras.models import Model
 from tensorflow.python.keras.layers import Dense
 from tensorflow.python.keras.models import Sequential
 from tensorflow.python.keras import backend as K
-
-from backend.training.neuralNetworkModel.treat import Selector
 import numpy as np
 
 
