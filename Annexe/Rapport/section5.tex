@@ -1,15 +1,15 @@
 \newpage
-\section{Comparaison entre des approches}
+\section{Comparaison entre les approches}
 \paragraph{}Nous commençons d'abord par donner les tableaux récapitulatifs suivants :
 \paragraph{Remarques : }
 \begin{itemize}
-	\item Tous les essayes se sont faite en 4 ré-apprentissages 
+	\item Tous les essais se sont faits en 4 ré-apprentissages 
 	\item chaque couche de sortie dispose de la fonction d'activation \textbf{softmax}\footnote{Fonction mathématiques de normalisation \url{https://en.wikipedia.org/wiki/Softmax_function}}, en raison de la nature de la codification choisie.
-	\item La liste des fonctions d'apprentissages utilisées au complet est cité dans \cite{KerasOpt}
+	\item La liste complète des fonctions d'apprentissages utilisées est disponible dans \cite{KerasOpt}
 \end{itemize}
 \begin{table}[H]
+	
 	\centering
-	\label{zeros}
 	\resizebox{\textwidth}{!}{%
 	\begin{tabular}{|l|c|c|c|}
 		\hline
@@ -24,8 +24,8 @@
 	}
 	\caption{Meilleures architectures sur les données de teste pour l'approche naïve (\ref{naiveApproache}) avec partitionnement aléatoire(\ref{randomPartLearning})}
 \end{table}
-\paragraph{Commentaires :}
-La première approche(voir \ref{naiveApproache}) avec partitionnement aléatoire a  donné d'assez bon résultats, il n'y a pas eu un sur-apprentissage apparent, les données de testes on été plutôt bien prédites, comme expliqué dans \ref{naiveApproache}, la discrimination a été effectué tant bien que mal, principalement dû au motif(pattern) des valeurs manquantes qui dépend grandement des geste de chaque utilisateur, cette approche reste a être testé avec des instances non-présentes dans le data-set.
+\paragraph{Commentaires :}\label{zeros}
+La première approche(voir \ref{naiveApproache}) avec partitionnement aléatoire a  donné d'assez bons résultats, il n'y a pas eu un sur-apprentissage apparent, les instances des données de testes on été plutôt bien prédites, comme expliqué dans \ref{naiveApproache}, la discrimination a été effectuée tant bien que mal, principalement dû au motif(pattern) des valeurs manquantes qui dépend grandement des gestes de chaque utilisateur, cette approche reste encore a être testé avec des instances non-présentes dans le data-set.
 \begin{table}[H]
 	\centering
 	\label{shit}
@@ -41,11 +41,11 @@ La première approche(voir \ref{naiveApproache}) avec partitionnement aléatoire
 		{[}40, 30{]} {[}'relu', 'relu'{]} : Adagrad  & 0.8856        & 0.8827     & 0.7708     \\ \hline
 	\end{tabular}
 	}
-	\caption{Meilleures architectures sur les données de teste pour l'approche avec naïve (\ref{naiveApproache}) avec partitionnement one-user-left(\ref{oneLeftLearning})}
+	\caption{Meilleures architectures sur les données de teste pour l'approche naïve (\ref{naiveApproache}) avec partitionnement one-user-left(\ref{oneLeftLearning})}
 \end{table}
 
-\paragraph{Commentaires :	}
-La même approche que précédemment (voir \ref{naiveApproache}) mais avec un partitionnement one-user-left, malheureusement cette approche n'a pas donnée d'aussi bon résultats que la précédente, principalement dû au fait que chaque utilisateur avait une manière différente de réaliser les gestes demandés ainsi qu'au non-étiquetage des marqueurs, les données manquantes sont donc très différentes selon l'utilisateur, ainsi les données du testeur sont très mal prédites, ceci est un cas typique de sur-apprentissage.
+\paragraph{Commentaires :	}\label{shit}
+La même approche que précédemment (voir \ref{naiveApproache}) mais avec un partitionnement one-user-left, malheureusement cette approche n'a pas donné d'aussi bon résultats que la précédente, principalement dû au fait que chaque utilisateur avait une manière différente de réaliser les gestes demandés ainsi qu'au non-étiquetage des marqueurs, les données manquantes sont donc très différentes selon l'utilisateur, ainsi les données du testeur sont très mal prédites, ceci est un cas typique de sur-apprentissage.
 
 \begin{table}[H]
 	\centering
@@ -64,4 +64,4 @@ La même approche que précédemment (voir \ref{naiveApproache}) mais avec un pa
 	\caption{Meilleures architectures sur les données de teste pour l'approche avec Clustering (\ref{clusterApproache}) avec partitionnement one-user-left(\ref{oneLeftLearning})}
 \end{table}
 \paragraph{Commentaires :	}
-Les remarques qui sautent aux yeux sont bien entendu le très bon score à l'évaluation (meilleur que dans \ref{zeros}) ainsi que le faible écart entre données d'apprentissage, de validation et de teste, malgré un partitionnement identique à celui de \ref{shit}, la différence faite par le clustering pour le ré-étiquetage des marqueurs et la gestion des valeurs manquantes a grandement aidé a donné un pattern similaires à ces valeurs pour chaque utilisateur, cette approche a donc couvert un peu plus l'espace de données possibles.
+Les remarques qui sautent aux yeux sont bien entendu le très bon score à l'évaluation (meilleur que dans \ref{zeros}) ainsi que le faible écart entre données d'apprentissage, de validation et de teste, malgré un partitionnement identique à celui de \ref{shit}, la différence faite par le clustering pour le ré-étiquetage des marqueurs et la gestion des valeurs manquantes a grandement aidé à donné un pattern similaires à ces valeurs pour chaque utilisateur, cette approche a donc couvert un peu plus l'espace des données.

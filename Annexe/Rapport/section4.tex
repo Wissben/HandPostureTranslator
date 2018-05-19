@@ -3,7 +3,7 @@
 Le problème ne pouvant être résolu à l'aide de techniques d'algorithmique classique(notamment à cause de sa trop forte complexité), le recours à l'apprentissage automatique s'est vu être la meilleure option.
 \subsection{Apprentissage sur les données}\label{learningSession}
 \paragraph{}
-Après avoir analysée et traité les données, nous avons ensuite entamer la conception de notre modèle, étant donnée que nous avons utilisé deux approches pour le pré-traitement des donnés, la façon dont notre modèle va apprendre ces données pourrait différer, c'est pourquoi cette section sera diviser en deux sous-sections : \\
+Après avoir analysé et traité les données, nous avons ensuite entamé la conception de notre modèle, étant donné que nous avons utilisé deux approches pour leur pré-traitement des , la façon dont notre modèle va apprendre sur ces données pourrait différer, c'est pourquoi cette section sera diviser en deux sous-sections : \\
 
 	\begin{tikzpicture}[node distance=2cm]
 	\node (pro2a) [process] {Pré-traitement des données};
@@ -41,18 +41,18 @@ Pour trouver la meilleure architecture pour chacune des approches, nous avons é
 \begin{itemize}
 	\item Nombre de couches cachées, en effet comme vu en cours et en TP, se contenter d'une seule couche cachées peut s'avérer être un handicap pour le bon apprentissage de neurones, mais en rajouter trop peut nous conduire à un sur-apprentissage\footnote{Phénomène ou le modèle s'adapte beaucoup trop bien aux données d'apprentissage au dépens des données de testes}, nous avons donc fixé ce paramètre au maximum de 3.
 	
-	\item Nombre de neurones par couches cachées, aussi étroitement lié à la complexité du problème, ce paramètre joue un rôle clé dans la puissance d'apprentissage du modèle, en contre partie, il est sujet au phénomène de sur-apprentissage(trop de neurones dans une couche caché), mais aussi à celui de sous-apprentissage\footnote{Phénomène ou le modèle n'arrive pas à apprendre la relation entres le données présentées durant l'apprentissage.}
+	\item Nombre de neurones par couches cachées, aussi étroitement lié à la complexité du problème, ce paramètre joue un rôle clé dans la puissance d'apprentissage du modèle, en contre partie, il est sujet au phénomène de sur-apprentissage(trop de neurones dans une couche caché), mais aussi à celui de sous-apprentissage\footnote{Phénomène ou le modèle n'arrive pas à apprendre la relation entre les données présentées durant l'apprentissage.}
 	
-	\item Fonction d'apprentissage(Optimiseur), Élément central lors de la phase d'apprentissage, se contenter d'une ou deux fonctions ne serait pas très judicieux d'un point de vue scientifique, en effet il existe une multitude d'optimiseurs adapté a différents types de problèmes(SGD\cite{Bottou2010},Adadelta\cite{adapt},RMSprop\cite{rms} ...)
+	\item Fonction d'apprentissage(Optimiseur), Élément central lors de la phase d'apprentissage, se contenter d'une ou deux fonctions ne serait pas très judicieux d'un point de vue scientifique, en effet il existe une multitude d'optimiseurs adaptés à différents types de problèmes(SGD\cite{Bottou2010},Adadelta\cite{adapt},RMSprop\cite{rms} ...)
 \end{itemize}
 
 
 \subsubsection{Apprentissage avec partitionnement aléatoire}\label{randomPartLearning}
-Danse cette approche, nous avons décidé de partitionné les donnés dans leur intégralité en 3 sous ensembles : 
+Danse cette approche, nous avons décidé de partitionner les données dans leur intégralité en 3 sous ensembles : 
 \begin{itemize}
 	\item $A$ Ensemble des instances sur les quelles sera lancé l'apprentissage.
 	\item $V$ Ensemble des instances pour contrôler l'avancement de l'apprentissage.
-	\item $T$ Ensemble des instances qui servirons à l'évaluation de l'approximation fournie par le modèle après sont apprentissage 
+	\item $T$ Ensemble des instances qui serviront à l'évaluation de l'approximation fournie par le modèle après son apprentissage 
 \end{itemize}
 
 \begin{table}[H]
@@ -82,7 +82,7 @@ Danse cette approche, nous avons décidé de partitionné les donnés dans leur 
 		
 \end{table}
 \subsubsection{Apprentissage avec partitionnement one-left-user}\label{oneLeftLearning}
-\paragraph{}L'idée (comme suggérée dans \cite{datasetDetails} )est de séparer l'ensemble des instances $D$ en deux sous ensembles \textbf{Train} et \textbf{Test} en fonction de l'identifiant d'une utilisateur $id$ tel que : 
+\paragraph{}L'idée (comme suggérée dans \cite{datasetDetails} )est de séparer l'ensemble des instances $D$ en deux sous ensembles \textbf{Train} et \textbf{Test} en fonction de l'identifiant d'un utilisateur $id$ tel que : 
 \begin{itemize}
 	\item \textbf{Train} contient l'ensemble des instances ou $D[user]\ne id$
 	\item \textbf{Test} contient l'ensemble des instances ou $D[user] = id$
