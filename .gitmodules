@@ -1,0 +1,6 @@
+[submodule "Annexe/Application/Application Desktop"]
+	path = Annexe/Application/Application Desktop
+	url = https://github.com/ressay/GloveSimulator
+[submodule "Annexe/Application/Application Mobile"]
+	path = Annexe/Application/Application Mobile
+	url = https://github.com/ressay/AARN
