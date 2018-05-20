@@ -15,11 +15,12 @@ def exludeUser(values,userId):
     return np.array(leftUser),np.array(otherUsers)
 
 
-if(len(sys.argv)<3):
+if(len(sys.argv)<2):
 	print("Too few argumente")
 	exit
 
 
+#data = pandas.read_csv(sys.argv[1])
 data = pandas.read_csv(sys.argv[1]).replace('?', 0)
 
 for user in range(0,15):

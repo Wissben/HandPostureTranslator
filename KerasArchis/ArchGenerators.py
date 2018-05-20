@@ -1,7 +1,7 @@
 import os
 import pathlib
 from threading import Thread
-
+import sys
 from tensorflow.python.keras import optimizers
 from tensorflow.python.keras._impl.keras.callbacks import CSVLogger
 from tensorflow.python.keras.callbacks import TensorBoard
@@ -9,7 +9,7 @@ from tensorflow.python.keras import Model
 import numpy as np
 import matplotlib.pyplot as plt
 from pandas import read_csv
-from KerasArchis.variator import Variator
+from variator import Variator
 
 
 def layerGenerator(numberOfLayers=3, step=10, maxPerLayer=40):
@@ -77,6 +77,10 @@ def exludeUser(values,userId):
     return np.array(leftUser),np.array(otherUsers)
 
 
+if(len(sys.argv)<2):
+	print("Too few arguments !")
+	exit
+
 # selector = Selector("allUsers.lcl.csv",6,2500)
 # values = selector.getData()
 
@@ -84,7 +88,9 @@ def exludeUser(values,userId):
 #MUST SPECIFY WHERE THE DATA IS
 
 
-data = read_csv("/home/wiss/CODES/TP-AARN/Mini-Project/DataSets/dataOneOf5.csv").replace('?', 0)
+#data = read_csv("../DataSets/dataOneOf5.csv").replace('?', 0)
+#sys.argv must containt codified data.
+data = read_csv(sys.argv[1]).replace('?', 0)
 leftUser, values = exludeUser(data.values, 14)
 values = values[1:, :]
 leftUser = leftUser[1:, :]
@@ -99,8 +105,6 @@ train_Y = values[:, -5:]
 test_X = leftUser[:, 2:-5]
 test_Y = leftUser[:, -5:]
 
-print(test_X, test_Y)
-
 # create tesnsorboard callback
 pathlib.Path('Logs').mkdir(parents=True, exist_ok=True)
 os.system("rm Logs/*")
@@ -112,10 +116,5 @@ paramGenerator = Variator.createTrainParamsGenerator(train_X, train_Y, trainGene
                                                      epochs=20, batch=200, callbacks=[csv_logger])
 
 # training the model
-variator = Variator(evaluationCallbacks=plotCallback, updateBestCallbacks=updateBestCallback)
+variator = Variator(evaluationCallbacks=[plotCallback], updateBestCallbacks=[updateBestCallback])
 model, score = variator.trainCustom(train_X,train_Y,test_X,test_Y, paramGenerator)
-
-#Training the model with none-left-user
-# values = data.values[1:,:]
-# model, score = variator.train(values[:,2:-5],values[:,-5:], 0.75,paramGenerator)
-

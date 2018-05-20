@@ -18,19 +18,21 @@ class Variator(object):
 
     def __init__(self, evaluationCallbacks=None, updateBestCallbacks=None,
                  evaluateScoreFunction=None) -> None:
+        #OH BOY THIS ONE IS MESSY.
         super().__init__()
         if evaluationCallbacks:
-            if isinstance(evaluationCallbacks, Iterator):
-                self.evaluationCallbacks = evaluationCallbacks
-            else:
-                self.evaluationCallbacks = [evaluationCallbacks]
+            self.evaluationCallbacks=evaluationCallbacks
+            # if isinstance(evaluationCallbacks, Iterator):
+            #     self.evaluationCallbacks = evaluationCallbacks
+            # else:
+            #     self.evaluationCallbacks = [evaluationCallbacks]
 
         if not updateBestCallbacks:
             updateBestCallbacks = defaultUpdateBestCallback
         if isinstance(updateBestCallbacks, Iterator):
             self.updateBestCallbacks = updateBestCallbacks
         else:
-            self.updateBestCallbacks = [updateBestCallbacks]
+            self.updateBestCallbacks = updateBestCallbacks
 
         if not evaluateScoreFunction:
             evaluateScoreFunction = defaultEvaluateScoreFunction
@@ -65,6 +67,7 @@ class Variator(object):
     def evaluateModel(self, model: Model, test_X, test_Y) -> Model:
         if self.evaluationCallbacks:
             for callback in self.evaluationCallbacks:
+                print(self.evaluationCallbacks)
                 callback(self, model)
 
         score = defaultEvaluation(model, test_X, test_Y)

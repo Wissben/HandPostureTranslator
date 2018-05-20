@@ -1,9 +1,12 @@
+import sys
+sys.path.append("/home/wiss/CODES/TP-AARN/Mini-Project/DataSets/Blender/")
 from sklearn.cluster import KMeans
 import pandas as pd
 import numpy as np
 from Blender.vectors import Vector, coSystem
 from sklearn.neighbors import NearestNeighbors
 from Gestures import getGesture
+
 def splitMarkersInNP(dataF,markers):
     array = []
     for i in range(markers):
@@ -21,6 +24,10 @@ def allDone(l:np.array):
             return index
         index+=1
     return index
+
+if(len(sys.argv)<2):
+	print("Too few arguments !")
+	exit
 
 
 origin = Vector(-0.734604, -0.167507, 1.454207)
@@ -70,7 +77,9 @@ for j in range(1,6):
     ######################### data to be rewritten #############################
     names = "Class,User,X0,Y0,Z0,X1,Y1,Z1,X2,Y2,Z2,X3,Y3,Z3,X4,Y4,Z4,X5,Y5,Z5,X6,Y6,Z6,X7,Y7,Z7,X8,Y8,Z8,X9,Y9,Z9,X10,Y10,Z10,X11,Y11,Z11,a,w,i,s,e"
     names = names.split(',')
-    allData = pd.read_csv("Partitionnement-one-user-left/usersLeft/user5/Training.csv",names=names).replace('?', 0).astype('float64')
+    pathTrainingUser = sys.argv[1]
+    allData = pd.read_csv(pathTrainingUser,names=names).replace('?', 0).astype('float64')
+    #allData = pd.read_csv("Partitionnement-one-user-left/usersLeft/user5/Training.csv",names=names).replace('?', 0).astype('float64')
     allData = allData[(allData['Class'] == j)]
     print(allData.shape)
 
