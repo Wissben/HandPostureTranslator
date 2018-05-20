@@ -1,1 +1,0 @@
-Le rémplacement des donnés manquantes par des zeros se fait lors du lancement de l'apprentissage.
